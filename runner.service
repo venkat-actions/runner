@@ -3,11 +3,11 @@ Description=GitHub Actions Runner
 After=network.target
 
 [Service]
-ExecStart=/home/ec2-user/actions-runner/runsvc.sh
+ExecStart=/home/ec2-user/actions-runner/run.sh
 WorkingDirectory=/home/ec2-user/actions-runner
 User=ec2-user
 Restart=always
-RestartSec=5
+
 
 [Install]
 WantedBy=multi-user.target
