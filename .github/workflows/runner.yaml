@@ -20,16 +20,23 @@ jobs:
           pwd
       - name: Terraform seup
         uses: hashicorp/setup-terraform@v4
-
-      - name: Terraform initializing
-        run: terraform init --reconfigure
-
+      
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v6.3.0
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
+
+      - name: Terraform initializing
+        run: terraform init --reconfigure
+
+      # - name: Configure AWS Credentials
+      #   uses: aws-actions/configure-aws-credentials@v6.3.0
+      #   with:
+      #     aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      #     aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      #     aws-region: us-east-1
       - name: formatting
         run: terraform fmt 
       - name: plan in terraform
