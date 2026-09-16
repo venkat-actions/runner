@@ -1,0 +1,13 @@
+name: Create Runner
+on:
+  workflow_dispatch:
+jobs:
+  runner:
+    runs-on: ubuntu-latest 
+    steps:
+      - name: checkout
+        uses: actions/checkout@v6
+      - name: Display the files
+        run: |
+          ls -ltrh
+          pwd
